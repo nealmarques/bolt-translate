@@ -83,7 +83,7 @@ class Legacy extends Storage
         if (isset($values[$localeSlug . 'data'])) {
             $localeData = json_decode($values[$localeSlug . 'data'], true);
 			
-			if ($localeData !== null) {
+			if ($localeData !== null && is_array($localeData)) {
 				foreach ($localeData as $key => $value) {
 					if ($key === 'templatefields') {
 						$templateFields = $app['config']->get('theme/templatefields/' . $record['template'] . '/fields');
